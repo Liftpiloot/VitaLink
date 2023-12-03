@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="VitaLink.MainPage">
 
+
     <ScrollView>
         <VerticalStackLayout
             Spacing="25"
@@ -10,30 +11,39 @@
             VerticalOptions="Center">
 
             <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                Source="vitalink_logo.png"
+                SemanticProperties.Description="VitaLink logo"
                 HeightRequest="200"
                 HorizontalOptions="Center" />
 
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
+            <Rectangle
+                Fill="Black"
+                Opacity="0.3"
+                WidthRequest="300"
+                HeightRequest="100"
+                HorizontalOptions="Center"
+                RadiusX="20"
+                RadiusY="20"/>
+            <Rectangle
+                Fill="Black"
+                Opacity="0.3"
+                WidthRequest="300"
+                HeightRequest="100"
+                HorizontalOptions="Center"
+                RadiusX="20"
+                RadiusY="20"/>
+            <Rectangle
+                Fill="Black"
+                Opacity="0.3"
+                WidthRequest="300"
+                HeightRequest="100"
+                HorizontalOptions="Center"
+                RadiusX="20"
+                RadiusY="20"/>
 
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
-
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
+            <Image
+                Source="kees.jpg"
+                WidthRequest="100"/>
 
         </VerticalStackLayout>
     </ScrollView>
