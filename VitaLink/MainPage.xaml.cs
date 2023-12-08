@@ -10,21 +10,35 @@
             Application.Current.UserAppTheme = AppTheme.Light;
 
             // Add the buttons to the stacklayout
-            peopleButtons.Children.Add(CreateFollowerButton("kees.jpg"));
-            peopleButtons.Children.Add(CreateFollowerButton("kees.jpg"));
+            Person kees = new Person(1, "Kees", "kees.jpg", 80);
+            Person peter = new Person(2, "Peter", "peter.jpg", 75);
+            List<Person> people = new List<Person>();
+            people.Add(kees);
+            people.Add(peter);
+
+            User user = User.getInstance();
+            user.Token = "123";
+            user.Username = "Abel";
+            user.FollowingList = people;
+
+            for (int i = 0; i < user.FollowingList.Count; i++)
+            {
+                peopleButtons.Children.Add(CreateFollowerButton(user.FollowingList[i]));
+            }
         }
-        private Frame CreateFollowerButton(string imageName)
+        private Frame CreateFollowerButton(Person person)
         {
             // Create an image with the specified source
             var imageButton = new ImageButton
             {
-                Source = imageName,
+                Source = person.Image,
                 Aspect = Aspect.AspectFit,
                 WidthRequest = peopleButtonSize,
                 HeightRequest = peopleButtonSize
             };
             imageButton.Clicked += (sender, args) =>
             {
+                heartRateText.Text = person.getHeartRate().ToString();
                 // TODO Show stats of the person
             };
 

@@ -16,30 +16,23 @@
                 HeightRequest="200"
                 HorizontalOptions="Center" />
 
-            <Rectangle
-                Fill="Black"
-                Opacity="0.3"
-                WidthRequest="300"
-                HeightRequest="100"
-                HorizontalOptions="Center"
-                RadiusX="20"
-                RadiusY="20"/>
-            <Rectangle
-                Fill="Black"
-                Opacity="0.3"
-                WidthRequest="300"
-                HeightRequest="100"
-                HorizontalOptions="Center"
-                RadiusX="20"
-                RadiusY="20"/>
-            <Rectangle
-                Fill="Black"
-                Opacity="0.3"
-                WidthRequest="300"
-                HeightRequest="100"
-                HorizontalOptions="Center"
-                RadiusX="20"
-                RadiusY="20"/>
+            <Frame x:Name="heartRate">
+                <Label 
+                    Text="5"
+                    x:Name="heartRateText"/>
+            </Frame>
+            
+            <Frame x:Name="temperature">
+                <Label 
+                    Text="5"
+                    x:Name="temperatureText"/>
+            </Frame>
+            
+            <Frame x:Name="location">
+                <Label 
+                    Text="5"
+                    x:Name="locationText"/>
+            </Frame>
 
             <HorizontalStackLayout x:Name="peopleButtons"
                                    HorizontalOptions="Center">
