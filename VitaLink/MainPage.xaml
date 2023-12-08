@@ -41,9 +41,9 @@
                 RadiusX="20"
                 RadiusY="20"/>
 
-            <Image
-                Source="kees.jpg"
-                WidthRequest="100"/>
+            <HorizontalStackLayout x:Name="peopleButtons"
+                                   HorizontalOptions="Center">
+            </HorizontalStackLayout>
 
         </VerticalStackLayout>
     </ScrollView>
