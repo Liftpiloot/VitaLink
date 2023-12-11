@@ -38,7 +38,7 @@
             };
             imageButton.Clicked += (sender, args) =>
             {
-                heartRateText.Text = person.getHeartRate().ToString();
+                showStats(person);
                 // TODO Show stats of the person
             };
 
@@ -56,5 +56,9 @@
             return frame;
         }
 
+        private void showStats(Person person)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
