@@ -26,6 +26,12 @@ public partial class HomeScreen : ContentPage
         {
             peopleButtons.Children.Add(CreateFollowerButton(user.FollowingList[i]));
         }
+
+        accountbutton.Clicked += (sender, args) =>
+        {
+            // TODO Handle account
+            Navigation.PushAsync(new SettingsPage());
+        };
     }
     private Frame CreateFollowerButton(Person person)
     {
