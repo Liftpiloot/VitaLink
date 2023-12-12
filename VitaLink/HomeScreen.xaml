@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VitaLink.HomeScreen"
+             Title="HomeScreen">
+    <ContentPage.Background>
+        <LinearGradientBrush EndPoint="0,1">
+            <GradientStop Color="#EDEDED"
+                          Offset="0" />
+            <GradientStop Color="#05203F"
+                          Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout
+            Spacing="20"
+            Padding="30,0"
+            VerticalOptions="Start">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image
+                    Grid.Column="1"
+                    Source="vitalink_logo.png"
+                    SemanticProperties.Description="VitaLink logo"
+                    HeightRequest="125"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Center" />
+
+                    <ImageButton
+                    Grid.Column="2"
+                    Source="account_icon.png"
+                    HorizontalOptions="End"
+                    VerticalOptions="Start"
+                    HeightRequest="50"/>
+                </Grid>
+
+
+                <Frame x:Name="heartRate"
+                   BackgroundColor="#144357"
+                   CornerRadius="25"
+                   BorderColor="Transparent">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.8*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Left content (Image) -->
+                        <Image
+                         Grid.Column="0"
+                        HeightRequest="100"
+                        HorizontalOptions="Start"
+                        Source="heart_icon.png"/>
+
+                        <!-- Right content (Label) -->
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Label
+	                        Grid.Row="0"
+                            HorizontalOptions="Start"
+	                        Text="Heartrate"
+	                        TextColor="White"
+                            FontSize="Title"
+                            TextDecorations="Underline"
+                            FontAttributes="Bold"
+	                        x:Name="heartRateTitle"/>
+                            <Label
+							Grid.Row="1"
+                            HorizontalOptions="Start"
+                            FontSize="Large"
+	                        Text="65 BPM"
+	                        TextColor="White"
+	                        x:Name="heartRateText"/>
+                        </Grid>
+                    </Grid>
+                </Frame>
+
+                <Frame x:Name="temperature"
+                    BackgroundColor="#144357"
+                   CornerRadius="25"
+                   BorderColor="Transparent">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.8*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Left content (Image) -->
+                        <Image
+                         Grid.Column="0"
+                        HeightRequest="100"
+                        HorizontalOptions="Start"
+                        Source="temp_icon.png"/>
+
+                        <!-- Right content (Label) -->
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Label
+	                        Grid.Row="0"
+                            HorizontalOptions="Start"
+	                        Text="Temperature"
+	                        TextColor="White"
+                            FontSize="Title"
+                            TextDecorations="Underline"
+                            FontAttributes="Bold"
+	                        x:Name="temperatureTitle"/>
+                            <Label
+							Grid.Row="1"
+                            HorizontalOptions="Start"
+                            FontSize="Large"
+	                        Text="10 °C"
+	                        TextColor="White"
+	                        x:Name="temperatureText"/>
+                        </Grid>
+
+                    </Grid>
+
+                </Frame>
+
+                <Frame x:Name="location"
+                   BackgroundColor="#144357"
+                   CornerRadius="25"
+                   BorderColor="Transparent">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.8*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Left content (Image) -->
+                        <Image
+                         Grid.Column="0"
+                        HeightRequest="100"
+                        HorizontalOptions="Start"
+                        Source="location_icon.png"/>
+
+                        <!-- Right content (Label) -->
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Label
+	                        Grid.Row="0"
+                            HorizontalOptions="Start"
+	                        Text="Location"
+	                        TextColor="White"
+                            FontSize="Title"
+                            TextDecorations="Underline"
+                            FontAttributes="Bold"
+	                        x:Name="locationTitle"/>
+                            <Label
+							Grid.Row="1"
+                            HorizontalOptions="Start"
+                            FontSize="Small"
+	                        Text="Professor Goosenlaan 5"
+	                        TextColor="White"
+	                        x:Name="locationText"/>
+                        </Grid>
+                    </Grid>
+                </Frame>
+
+            </VerticalStackLayout>
+        </ScrollView>
+        <HorizontalStackLayout x:Name="peopleButtons"
+                               Grid.Row="1"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Margin="20">
+        </HorizontalStackLayout>
+    </Grid>
+
+</ContentPage>
