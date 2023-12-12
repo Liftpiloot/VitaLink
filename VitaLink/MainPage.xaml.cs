@@ -14,6 +14,12 @@
                 // TODO Handle login
                 Navigation.PushAsync(new HomeScreen());
             };
+            // Go to register.xaml.cs when registerbutton is clicked
+            registerbutton.Clicked += (sender, args) =>
+            {
+                // TODO Handle register
+                Navigation.PushAsync(new RegisterPage());
+            };
 
 
         }

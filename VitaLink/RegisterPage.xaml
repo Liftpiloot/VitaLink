@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VitaLink.RegisterPage"
+             Title="RegisterPage">
+    <ContentPage.Background>
+        <LinearGradientBrush EndPoint="0,1">
+            <GradientStop Color="#EDEDED"
+                      Offset="0" />
+            <GradientStop Color="#05203F"
+                      Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    
+    <VerticalStackLayout>
+        <Image
+    Source="vitalink_logo.png"
+    SemanticProperties.Description="VitaLink logo"
+    HeightRequest="125"
+    VerticalOptions="Start"
+    HorizontalOptions="Center" />
+        <Frame
+            Background="#144357"
+            BorderColor="White"
+            WidthRequest="300"
+            HeightRequest="50"
+            Margin="10">
+            <Entry x:Name="UserName"
+                   Text="Username"
+                   FontSize="Large"
+                   TextColor="White"
+                   BackgroundColor="Transparent"    
+                   HorizontalOptions="FillAndExpand"
+                   WidthRequest="300"
+                   VerticalOptions="FillAndExpand"
+                   HeightRequest="50"/>
+        </Frame>
+        <Frame
+            Background="#144357"
+            BorderColor="White"
+            WidthRequest="300"
+            HeightRequest="50"
+            Margin="10">
+            <Entry x:Name="Email"
+               Text="Email"
+               FontSize="Large"
+               TextColor="White"
+               BackgroundColor="Transparent"
+               HorizontalOptions="FillAndExpand"
+               WidthRequest="300"
+               VerticalOptions="FillAndExpand"
+               HeightRequest="50"
+               />
+                </Frame>
+
+        <Frame
+            Background="#144357"
+            BorderColor="White"
+            WidthRequest="300"
+            HeightRequest="50"
+            Margin="10">
+            <Entry x:Name="Password"
+                   Text="Password"
+                   FontSize="Large"
+                   TextColor="White"
+                   BackgroundColor="Transparent"
+                   HorizontalOptions="FillAndExpand"
+                   WidthRequest="300"
+                   VerticalOptions="FillAndExpand" 
+                   HeightRequest="50"/>
+        </Frame>
+
+        <Picker x:Name="UserType"
+                    Title="User Type"
+                    WidthRequest="300"
+                    HeightRequest="50"
+                    Margin="10"
+                    TextColor="White"
+                    FontSize="Large">
+            <Picker.Items>
+                <x:String>Family member</x:String>
+                <x:String>Doctor</x:String>
+                <x:String>patient</x:String>
+            </Picker.Items>
+        </Picker>
+            
+        <Button Text="Register"
+        WidthRequest="300"
+        HeightRequest="50"
+        Margin="10"
+        x:Name="registerbutton"/>
+    </VerticalStackLayout>
+</ContentPage>
