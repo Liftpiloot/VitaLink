@@ -12,6 +12,7 @@
         </LinearGradientBrush>
     </ContentPage.Background>
     
+    
     <VerticalStackLayout>
         <Label Text="Account" 
                HorizontalOptions="Center"

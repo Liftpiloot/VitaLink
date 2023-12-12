@@ -50,7 +50,7 @@
 
 
                 <Frame x:Name="heartRate"
-                   BackgroundColor="#144357"
+                   BackgroundColor="{StaticResource VitaBlue}"
                    CornerRadius="25"
                    BorderColor="Transparent">
                     <Grid>
@@ -93,7 +93,7 @@
                 </Frame>
 
                 <Frame x:Name="temperature"
-                    BackgroundColor="#144357"
+                    BackgroundColor="{StaticResource VitaBlue}"
                    CornerRadius="25"
                    BorderColor="Transparent">
                     <Grid>
@@ -138,7 +138,7 @@
                 </Frame>
 
                 <Frame x:Name="location"
-                   BackgroundColor="#144357"
+                   BackgroundColor="{StaticResource VitaBlue}"
                    CornerRadius="25"
                    BorderColor="Transparent">
                     <Grid>

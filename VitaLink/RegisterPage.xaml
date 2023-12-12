@@ -20,7 +20,7 @@
     VerticalOptions="Start"
     HorizontalOptions="Center" />
         <Frame
-            Background="#144357"
+            Background="{StaticResource VitaBlue}"
             BorderColor="White"
             WidthRequest="300"
             HeightRequest="50"
@@ -36,7 +36,7 @@
                    HeightRequest="50"/>
         </Frame>
         <Frame
-            Background="#144357"
+            Background="{StaticResource VitaBlue}"
             BorderColor="White"
             WidthRequest="300"
             HeightRequest="50"
@@ -54,7 +54,7 @@
                 </Frame>
 
         <Frame
-            Background="#144357"
+            Background="{StaticResource VitaBlue}"
             BorderColor="White"
             WidthRequest="300"
             HeightRequest="50"
