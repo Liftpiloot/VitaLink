@@ -19,50 +19,63 @@
             VerticalOptions="Start"
             HorizontalOptions="Center" />
         <Frame
-            Background="{StaticResource VitaBlue}"
-            BorderColor="White"
-            WidthRequest="300"
-            HeightRequest="50"
-            Margin="10">
-            <Entry x:Name="Email"
-                   Text="Email"
-                   FontSize="Large"
-                   TextColor="White"
-                   BackgroundColor="Transparent"
-                   HorizontalOptions="FillAndExpand"
-                   WidthRequest="300"
-                   VerticalOptions="FillAndExpand"
-                   HeightRequest="50"
-                   />
-        </Frame>
-        
-        <Frame
-            Background="{StaticResource VitaBlue}"
-            BorderColor="White"
-            WidthRequest="300"
-            HeightRequest="50"
-            Margin="10">
-            <Entry x:Name="Password"
-                   Text="Password"
-                   FontSize="Large"
-                   TextColor="White"
-                   BackgroundColor="Transparent"
-                   HorizontalOptions="FillAndExpand"
-                   WidthRequest="300"
-                   VerticalOptions="FillAndExpand" 
-                   HeightRequest="50"/>
-        </Frame>
+            Margin="20">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
-        <Button Text="Login"
-                WidthRequest="300"
-                HeightRequest="50"
-                Margin="10"
-                x:Name="loginbutton"/>
-        <Button Text="Register"
-                WidthRequest="300"
-                HeightRequest="50"
-                Margin="10"
-                x:Name="registerbutton"/>
+                <Label Text="Login" 
+                       Grid.Column="0"
+                       Grid.Row="0"
+                       HorizontalOptions="Start"
+                       Margin="10"
+                       FontSize="Medium"/>
+
+                <Entry Placeholder="Email"
+                    Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                    HorizontalOptions="Start"
+                    Margin="10"
+                    FontSize="Medium"
+                    WidthRequest="300"
+                    x:Name="emailentry"/>
+
+                <Entry Placeholder="Password"
+                    Grid.Row="2"
+                    Grid.ColumnSpan="2"
+                    HorizontalOptions="Start"
+                    Margin="10"
+                    FontSize="Medium"
+                    WidthRequest="300"
+                    x:Name="passwordentry"/>
+
+                <Button Text="Login"
+                    Grid.Column="0"
+                    Grid.Row="3"
+                    Margin="10"
+                    FontSize="Small"
+                    HorizontalOptions="Center"
+                    WidthRequest="120"
+                    x:Name="loginbutton"/>
+
+                <Button Text="Register"
+                    Grid.Column="1"
+                    Grid.Row="3"
+                    Margin="10"
+                    FontSize="Small"
+                    HorizontalOptions="Center"
+                    WidthRequest="120"
+                    x:Name="registerbutton"/>
+            </Grid>
+        </Frame>
     </StackLayout>
 
 </ContentPage>
