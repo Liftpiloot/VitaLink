@@ -4,14 +4,14 @@
     {
         private int Id { get; set; }
         public string Name { get; set; }
-        public string Image { get; set; }
+        public string ImageUrl { get; set; }
         public int Age { get; set; }
 
-        public Person(int id, string name, string image, int age)
+        public Person(int id, string name, string imageUrl, int age)
         {
             Id = id;
             Name = name;
-            Image = image;
+            ImageUrl = imageUrl;
             Age = age;
         }
 

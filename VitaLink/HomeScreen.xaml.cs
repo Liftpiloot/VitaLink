@@ -38,7 +38,7 @@ public partial class HomeScreen : ContentPage
         // Create an image with the specified source
         var imageButton = new ImageButton
         {
-            Source = person.Image,
+            Source = person.ImageUrl,
             Aspect = Aspect.AspectFit,
             WidthRequest = peopleButtonSize,
             HeightRequest = peopleButtonSize
@@ -53,7 +53,7 @@ public partial class HomeScreen : ContentPage
         var frame = new Frame
         {
             Content = imageButton,
-            HasShadow = true,
+            HasShadow = false,
             CornerRadius = 25, // Round the corners
             WidthRequest = peopleButtonSize,
             HeightRequest = peopleButtonSize,
