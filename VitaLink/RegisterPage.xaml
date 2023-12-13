@@ -69,7 +69,7 @@
                        WidthRequest="300"
                        x:Name="usernameentry"/>
 
-                <Picker x:Name="UserType"
+                <Picker x:Name="userTypePicker"
                     Grid.ColumnSpan="2"
                     Grid.Row="4"
                     Title="User Type"
@@ -78,9 +78,6 @@
                     Margin="10"
                     FontSize="Medium">
                     <Picker.Items>
-                        <x:String>Family member</x:String>
-                        <x:String>Doctor</x:String>
-                        <x:String>patient</x:String>
                     </Picker.Items>
                 </Picker>
 
