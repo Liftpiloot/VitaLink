@@ -10,7 +10,7 @@ namespace VitaLink
     {
         public string Username { get; set; }
         public string Token { get; set; }
-        public List<Person> FollowingList { get; set; }
+        public List<Senior> FollowingList { get; set; }
         public UserType UserType { get; set; }
         private static User instance;
 

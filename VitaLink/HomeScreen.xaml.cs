@@ -11,9 +11,9 @@ public partial class HomeScreen : ContentPage
         Application.Current.UserAppTheme = AppTheme.Light;
 
         // Add the buttons to the stacklayout
-        Person kees = new Person(1, "Kees", "kees.jpg", 80);
-        Person peter = new Person(2, "Peter", "peter.jpg", 75);
-        List<Person> people = new List<Person>();
+        Senior kees = new Senior(1, "Kees", "kees.jpg", 80);
+        Senior peter = new Senior(2, "Peter", "peter.jpg", 75);
+        List<Senior> people = new List<Senior>();
         people.Add(kees);
         people.Add(peter);
 
@@ -33,19 +33,19 @@ public partial class HomeScreen : ContentPage
             Navigation.PushAsync(new SettingsPage());
         };
     }
-    private Frame CreateFollowerButton(Person person)
+    private Frame CreateFollowerButton(Senior senior)
     {
         // Create an image with the specified source
         var imageButton = new ImageButton
         {
-            Source = person.ImageUrl,
+            Source = senior.ImageUrl,
             Aspect = Aspect.AspectFit,
             WidthRequest = peopleButtonSize,
             HeightRequest = peopleButtonSize
         };
         imageButton.Clicked += (sender, args) =>
         {
-            showStats(person);
+            showStats(senior);
             // TODO Show stats of the person
         };
 
@@ -63,7 +63,7 @@ public partial class HomeScreen : ContentPage
         return frame;
     }
 
-    private void showStats(Person person)
+    private void showStats(Senior senior)
     {
         throw new NotImplementedException();
     }
