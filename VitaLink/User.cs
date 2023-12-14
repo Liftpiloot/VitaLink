@@ -16,8 +16,15 @@ namespace VitaLink
 
         private User()
         {
+            // Fake data for testing purposes
+            Senior kees = new Senior(1, "Kees", "kees.jpg", 80);
+            Senior peter = new Senior(2, "Peter", "peter.jpg", 75);
+            List<Senior> people = new List<Senior>();
+            people.Add(kees);
+            people.Add(peter);
+            FollowingList = people;
         }
-        public static User getInstance()
+        public static User GetInstance()
         {
             if (instance == null)
             {
@@ -25,5 +32,6 @@ namespace VitaLink
             }
             return instance;
         }
+        
     }
 }

@@ -2,26 +2,20 @@ namespace VitaLink;
 
 public partial class HomeScreen : ContentPage
 {
-    public static int peopleButtonSize = 50;
+    public static int PeopleButtonSize = 50;
 
     public HomeScreen()
     {
         InitializeComponent();
         // Set the theme to light
         Application.Current.UserAppTheme = AppTheme.Light;
-
-        // Add the buttons to the stacklayout
-        Senior kees = new Senior(1, "Kees", "kees.jpg", 80);
-        Senior peter = new Senior(2, "Peter", "peter.jpg", 75);
-        List<Senior> people = new List<Senior>();
-        people.Add(kees);
-        people.Add(peter);
-
-        User user = User.getInstance();
+        
+        // Example for creating a user, should be handled with the database
+        User user = User.GetInstance();
         user.Token = "123";
         user.Username = "Abel";
-        user.FollowingList = people;
-
+        
+        // Add the buttons to the stack layout
         for (int i = 0; i < user.FollowingList.Count; i++)
         {
             peopleButtons.Children.Add(CreateFollowerButton(user.FollowingList[i]));
@@ -40,12 +34,12 @@ public partial class HomeScreen : ContentPage
         {
             Source = senior.ImageUrl,
             Aspect = Aspect.AspectFit,
-            WidthRequest = peopleButtonSize,
-            HeightRequest = peopleButtonSize
+            WidthRequest = PeopleButtonSize,
+            HeightRequest = PeopleButtonSize
         };
         imageButton.Clicked += (sender, args) =>
         {
-            showStats(senior);
+            ShowStats(senior);
             // TODO Show stats of the person
         };
 
@@ -55,15 +49,15 @@ public partial class HomeScreen : ContentPage
             Content = imageButton,
             HasShadow = false,
             CornerRadius = 25, // Round the corners
-            WidthRequest = peopleButtonSize,
-            HeightRequest = peopleButtonSize,
+            WidthRequest = PeopleButtonSize,
+            HeightRequest = PeopleButtonSize,
             Margin = 5
         };
 
         return frame;
     }
 
-    private void showStats(Senior senior)
+    private void ShowStats(Senior senior)
     {
         throw new NotImplementedException();
     }
