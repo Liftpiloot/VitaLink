@@ -1,7 +1,7 @@
 namespace VitaLink;
 using Microsoft.Maui.Controls;
 
-public partial class HomeScreen : ContentPage
+public partial class HomeScreen
 {
     private const int PeopleButtonSize = 50;
     private Senior _selectedSenior;
@@ -10,21 +10,20 @@ public partial class HomeScreen : ContentPage
     {
         InitializeComponent();
         // Set the theme to light
-        Application.Current.UserAppTheme = AppTheme.Light;
-        
+        if (Application.Current != null) Application.Current.UserAppTheme = AppTheme.Light;
+
         // Example for creating a user, should be handled with the database
         User user = User.GetInstance();
-        user.Token = "123";
         user.Username = "Abel";
         _selectedSenior = user.FollowingList[0];
         
         // Add the buttons to the stack layout
-        for (int i = 0; i < user.FollowingList.Count; i++)
+        foreach (var senior in user.FollowingList)
         {
-            peopleButtons.Children.Add(CreateFollowerButton(user.FollowingList[i]));
+            PeopleButtons.Children.Add(CreateFollowerButton(senior));
         }
 
-        accountbutton.Clicked += (sender, args) =>
+        AccountButton.Clicked += (_, _) =>
         {
             // TODO Handle account
             Navigation.PushAsync(new SettingsPage());
@@ -49,9 +48,9 @@ public partial class HomeScreen : ContentPage
             WidthRequest = PeopleButtonSize,
             HeightRequest = PeopleButtonSize
         };
-        imageButton.Clicked += (sender, args) =>
+        imageButton.Clicked += (_, _) =>
         {
-            foreach (var view in peopleButtons.Children)
+            foreach (var view in PeopleButtons.Children)
             {
                 var button = (Frame)view;
                 if (button.Content == imageButton)
@@ -89,8 +88,8 @@ public partial class HomeScreen : ContentPage
 
     private void ShowStats(Senior senior)
     {
-        locationText.Text = senior.GetLocation();
-        heartRateText.Text = senior.GetHeartRate().ToString();
-        temperatureText.Text = senior.GetTemperature().ToString();
+        LocationText.Text = senior.GetLocation();
+        HeartRateText.Text = senior.GetHeartRate().ToString();
+        TemperatureText.Text = senior.GetTemperature().ToString();
     }
 }

@@ -44,41 +44,39 @@
 
                 <Entry Placeholder="Email"
                     Grid.Row="1"
-                    Grid.ColumnSpan="2"
+                    Grid.ColumnSpan="2" Grid.Column="0"
                     HorizontalOptions="Start"
                     Margin="10"
                     FontSize="Medium"
                     WidthRequest="300"
-                    x:Name="emailentry"/>
+                    x:Name="EmailEntry"/>
 
                 <Entry Placeholder="Password"
                     Grid.Row="2"
-                    Grid.ColumnSpan="2"
+                    Grid.ColumnSpan="2" Grid.Column="0"
                     HorizontalOptions="Start"
                     Margin="10"
                     FontSize="Medium"
                     WidthRequest="300"
-                    x:Name="passwordentry"/>
+                    x:Name="PasswordEntry"/>
 
                 <Entry Placeholder="Username"
                        Grid.Row="3"
-                       Grid.ColumnSpan="2"
+                       Grid.ColumnSpan="2" Grid.Column="0"
                        HorizontalOptions="Start"
                        Margin="10"
                        FontSize="Medium"
                        WidthRequest="300"
-                       x:Name="usernameentry"/>
+                       x:Name="UsernameEntry"/>
 
-                <Picker x:Name="userTypePicker"
-                    Grid.ColumnSpan="2"
+                <Picker x:Name="UserTypePicker"
+                    Grid.ColumnSpan="2" Grid.Column="0"
                     Grid.Row="4"
                     Title="User Type"
                     WidthRequest="300"
                     HeightRequest="50"
                     Margin="10"
                     FontSize="Medium">
-                    <Picker.Items>
-                    </Picker.Items>
                 </Picker>
 
                 <Button Text="Register"
@@ -88,7 +86,7 @@
                     FontSize="Medium"
                     HorizontalOptions="Center"
                     WidthRequest="120"
-                    x:Name="registerbutton"/>
+                    x:Name="RegisterButton"/>
 
             </Grid>
         </Frame>

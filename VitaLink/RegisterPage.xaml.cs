@@ -11,11 +11,11 @@ public partial class RegisterPage : ContentPage
 		// add enum name to userTypePicker for every enum value in UserType
 		foreach (string userType in Enum.GetNames(typeof(UserType)))
 		{
-            userTypePicker.Items.Add(userType);
+            UserTypePicker.Items.Add(userType);
         }
 
 		// Go to homeScreen.xaml.cs when registerbutton is clicked
-		registerbutton.Clicked += (sender, args) =>
+		RegisterButton.Clicked += (sender, args) =>
 		{
             // TODO Handle register
             Navigation.PushAsync(new HomeScreen());

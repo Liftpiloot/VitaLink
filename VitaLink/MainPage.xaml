@@ -41,21 +41,21 @@
 
                 <Entry Placeholder="Email"
                     Grid.Row="1"
-                    Grid.ColumnSpan="2"
+                    Grid.ColumnSpan="2" Grid.Column="0"
                     HorizontalOptions="Start"
                     Margin="10"
                     FontSize="Medium"
                     WidthRequest="300"
-                    x:Name="emailentry"/>
+                    x:Name="EmailEntry"/>
 
                 <Entry Placeholder="Password"
                     Grid.Row="2"
-                    Grid.ColumnSpan="2"
+                    Grid.ColumnSpan="2" Grid.Column="0"
                     HorizontalOptions="Start"
                     Margin="10"
                     FontSize="Medium"
                     WidthRequest="300"
-                    x:Name="passwordentry"/>
+                    x:Name="PasswordEntry"/>
 
                 <Button Text="Login"
                     Grid.Column="0"
@@ -64,7 +64,7 @@
                     FontSize="Small"
                     HorizontalOptions="Center"
                     WidthRequest="120"
-                    x:Name="loginbutton"/>
+                    x:Name="LoginButton"/>
 
                 <Button Text="Register"
                     Grid.Column="1"
@@ -73,7 +73,7 @@
                     FontSize="Small"
                     HorizontalOptions="Center"
                     WidthRequest="120"
-                    x:Name="registerbutton"/>
+                    x:Name="RegisterButton"/>
             </Grid>
         </Frame>
     </StackLayout>

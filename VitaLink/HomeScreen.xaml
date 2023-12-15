@@ -45,11 +45,11 @@
                     HorizontalOptions="End"
                     VerticalOptions="Start"
                     HeightRequest="50"
-                        x:Name="accountbutton"/>
+                    x:Name="AccountButton"/>
                 </Grid>
 
 
-                <Frame x:Name="heartRate"
+                <Frame x:Name="HeartRate"
                    BackgroundColor="{StaticResource VitaBlue}"
                    CornerRadius="25"
                    BorderColor="Transparent">
@@ -80,19 +80,19 @@
                             FontSize="Title"
                             TextDecorations="Underline"
                             FontAttributes="Bold"
-	                        x:Name="heartRateTitle"/>
+	                        x:Name="HeartRateTitle"/>
                             <Label
 							Grid.Row="1"
                             HorizontalOptions="Start"
                             FontSize="Large"
 	                        Text="65 BPM"
 	                        TextColor="White"
-	                        x:Name="heartRateText"/>
+	                        x:Name="HeartRateText"/>
                         </Grid>
                     </Grid>
                 </Frame>
 
-                <Frame x:Name="temperature"
+                <Frame x:Name="Temperature"
                     BackgroundColor="{StaticResource VitaBlue}"
                    CornerRadius="25"
                    BorderColor="Transparent">
@@ -123,21 +123,21 @@
                             FontSize="Title"
                             TextDecorations="Underline"
                             FontAttributes="Bold"
-	                        x:Name="temperatureTitle"/>
+	                        x:Name="TemperatureTitle"/>
                             <Label
 							Grid.Row="1"
                             HorizontalOptions="Start"
                             FontSize="Large"
 	                        Text="10 °C"
 	                        TextColor="White"
-	                        x:Name="temperatureText"/>
+	                        x:Name="TemperatureText"/>
                         </Grid>
 
                     </Grid>
 
                 </Frame>
 
-                <Frame x:Name="location"
+                <Frame x:Name="Location"
                    BackgroundColor="{StaticResource VitaBlue}"
                    CornerRadius="25"
                    BorderColor="Transparent">
@@ -168,21 +168,21 @@
                             FontSize="Title"
                             TextDecorations="Underline"
                             FontAttributes="Bold"
-	                        x:Name="locationTitle"/>
+	                        x:Name="LocationTitle"/>
                             <Label
 							Grid.Row="1"
                             HorizontalOptions="Start"
                             FontSize="Small"
 	                        Text="Professor Goosenlaan 5"
 	                        TextColor="White"
-	                        x:Name="locationText"/>
+	                        x:Name="LocationText"/>
                         </Grid>
                     </Grid>
                 </Frame>
 
             </VerticalStackLayout>
         </ScrollView>
-        <HorizontalStackLayout x:Name="peopleButtons"
+        <HorizontalStackLayout x:Name="PeopleButtons"
                                Grid.Row="1"
                                HorizontalOptions="Center"
                                VerticalOptions="Center"
