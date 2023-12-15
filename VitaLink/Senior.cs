@@ -15,19 +15,19 @@
             Age = age;
         }
 
-        public int getHeartRate()
+        public int GetHeartRate()
         {
             // TODO
             return 0;
         }
 
-        public int getTemperature()
+        public int GetTemperature()
         {
             // TODO
             return 0;
         }
 
-        public string getLocation()
+        public string GetLocation()
         {
             // TODO
             return "";

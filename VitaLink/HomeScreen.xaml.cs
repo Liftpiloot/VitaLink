@@ -2,7 +2,8 @@ namespace VitaLink;
 
 public partial class HomeScreen : ContentPage
 {
-    public static int PeopleButtonSize = 50;
+    private const int PeopleButtonSize = 50;
+    private Senior _selectedSenior;
 
     public HomeScreen()
     {
@@ -59,6 +60,9 @@ public partial class HomeScreen : ContentPage
 
     private void ShowStats(Senior senior)
     {
-        throw new NotImplementedException();
+        _selectedSenior = senior;
+        locationText.Text = senior.GetLocation();
+        heartRateText.Text = senior.GetHeartRate().ToString();
+        temperatureText.Text = senior.GetTemperature().ToString();
     }
 }
