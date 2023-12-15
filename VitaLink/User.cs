@@ -19,9 +19,11 @@ namespace VitaLink
             // Fake data for testing purposes
             Senior kees = new Senior(1, "Kees", "kees.jpg", 80);
             Senior peter = new Senior(2, "Peter", "peter.jpg", 75);
+            Senior fred = new Senior(3, "Ron", "ron.jpg", 85);
             List<Senior> people = new List<Senior>();
             people.Add(kees);
             people.Add(peter);
+            people.Add(fred);
             FollowingList = people;
         }
         public static User GetInstance()

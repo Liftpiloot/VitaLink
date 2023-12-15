@@ -1,4 +1,5 @@
 namespace VitaLink;
+using Microsoft.Maui.Controls;
 
 public partial class HomeScreen : ContentPage
 {
@@ -15,6 +16,7 @@ public partial class HomeScreen : ContentPage
         User user = User.GetInstance();
         user.Token = "123";
         user.Username = "Abel";
+        _selectedSenior = user.FollowingList[0];
         
         // Add the buttons to the stack layout
         for (int i = 0; i < user.FollowingList.Count; i++)
@@ -27,6 +29,15 @@ public partial class HomeScreen : ContentPage
             // TODO Handle account
             Navigation.PushAsync(new SettingsPage());
         };
+        
+        
+        
+        // Run the ShowStats() method every 10 seconds
+        Device.StartTimer(TimeSpan.FromSeconds(10), ()=>
+        {
+            ShowStats(_selectedSenior);
+            return true;
+        });
     }
     private Frame CreateFollowerButton(Senior senior)
     {
@@ -40,8 +51,26 @@ public partial class HomeScreen : ContentPage
         };
         imageButton.Clicked += (sender, args) =>
         {
+            foreach (var view in peopleButtons.Children)
+            {
+                var button = (Frame)view;
+                if (button.Content == imageButton)
+                {
+                    button.HeightRequest = PeopleButtonSize + 10;
+                    button.Content.HeightRequest = PeopleButtonSize + 10;
+                    button.WidthRequest = PeopleButtonSize + 10;
+                    button.Content.WidthRequest = PeopleButtonSize + 10;
+                }
+                else{
+                    button.HeightRequest = PeopleButtonSize;
+                    button.Content.HeightRequest = PeopleButtonSize;
+                    button.WidthRequest = PeopleButtonSize;
+                    button.Content.WidthRequest = PeopleButtonSize;
+                }
+            }
+            
+            _selectedSenior = senior;
             ShowStats(senior);
-            // TODO Show stats of the person
         };
 
         // Create a frame to wrap the image
@@ -52,7 +81,7 @@ public partial class HomeScreen : ContentPage
             CornerRadius = 25, // Round the corners
             WidthRequest = PeopleButtonSize,
             HeightRequest = PeopleButtonSize,
-            Margin = 5
+            Margin = 5,
         };
 
         return frame;
@@ -60,7 +89,6 @@ public partial class HomeScreen : ContentPage
 
     private void ShowStats(Senior senior)
     {
-        _selectedSenior = senior;
         locationText.Text = senior.GetLocation();
         heartRateText.Text = senior.GetHeartRate().ToString();
         temperatureText.Text = senior.GetTemperature().ToString();
