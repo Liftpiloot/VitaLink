@@ -22,14 +22,16 @@ public partial class HomeScreen
         {
             PeopleButtons.Children.Add(CreateFollowerButton(senior));
         }
+        
+        // Set the first senior as the selected senior
+        _selectedSenior = user.FollowingList[0];
+        VisualiseSelectedButton((ImageButton)((Frame)PeopleButtons.Children[0]).Content);
 
         AccountButton.Clicked += (_, _) =>
         {
             // TODO Handle account
             Navigation.PushAsync(new SettingsPage());
         };
-        
-        
         
         // Run the ShowStats() method every 10 seconds
         Device.StartTimer(TimeSpan.FromSeconds(10), ()=>
@@ -38,6 +40,12 @@ public partial class HomeScreen
             return true;
         });
     }
+    
+    /*
+     * Creates a button for a senior
+     * @param senior The senior to create a button for
+     * @return The button
+     */
     private Frame CreateFollowerButton(Senior senior)
     {
         // Create an image with the specified source
@@ -50,24 +58,7 @@ public partial class HomeScreen
         };
         imageButton.Clicked += (_, _) =>
         {
-            foreach (var view in PeopleButtons.Children)
-            {
-                var button = (Frame)view;
-                if (button.Content == imageButton)
-                {
-                    button.HeightRequest = PeopleButtonSize + 10;
-                    button.Content.HeightRequest = PeopleButtonSize + 10;
-                    button.WidthRequest = PeopleButtonSize + 10;
-                    button.Content.WidthRequest = PeopleButtonSize + 10;
-                }
-                else{
-                    button.HeightRequest = PeopleButtonSize;
-                    button.Content.HeightRequest = PeopleButtonSize;
-                    button.WidthRequest = PeopleButtonSize;
-                    button.Content.WidthRequest = PeopleButtonSize;
-                }
-            }
-            
+            VisualiseSelectedButton(imageButton);
             _selectedSenior = senior;
             ShowStats(senior);
         };
@@ -77,13 +68,37 @@ public partial class HomeScreen
         {
             Content = imageButton,
             HasShadow = false,
-            CornerRadius = 25, // Round the corners
+            CornerRadius = 50, // Round the corners
             WidthRequest = PeopleButtonSize,
             HeightRequest = PeopleButtonSize,
             Margin = 5,
         };
-
         return frame;
+    }
+    
+    /*
+     * Visualises the selected button, by making it bigger than the other buttons
+     * @param imageButton The button to visualise
+     */
+    private void VisualiseSelectedButton(ImageButton imageButton)
+    {
+        foreach (var view in PeopleButtons.Children)
+        {
+            var button = (Frame)view;
+            if (button.Content == imageButton)
+            {
+                button.HeightRequest = PeopleButtonSize + 10;
+                button.Content.HeightRequest = PeopleButtonSize + 10;
+                button.WidthRequest = PeopleButtonSize + 10;
+                button.Content.WidthRequest = PeopleButtonSize + 10;
+            }
+            else{
+                button.HeightRequest = PeopleButtonSize;
+                button.Content.HeightRequest = PeopleButtonSize;
+                button.WidthRequest = PeopleButtonSize;
+                button.Content.WidthRequest = PeopleButtonSize;
+            }
+        }
     }
 
     private void ShowStats(Senior senior)
