@@ -3,7 +3,7 @@ using Microsoft.Maui.Controls;
 
 public partial class HomeScreen
 {
-    private const int PeopleButtonSize = 50;
+    private const int PeopleButtonSize = 60;
     private Senior _selectedSenior;
 
     public HomeScreen()
@@ -71,7 +71,7 @@ public partial class HomeScreen
             CornerRadius = 50, // Round the corners
             WidthRequest = PeopleButtonSize,
             HeightRequest = PeopleButtonSize,
-            Margin = 5,
+            Margin = 10,
         };
         return frame;
     }
@@ -88,14 +88,14 @@ public partial class HomeScreen
             if (button.Content == imageButton)
             { 
                 button.ScaleTo(1.2, 100); 
-                button.Content.ScaleTo(1.2, 100);
+                button.Content.ScaleTo(1, 100);
             }
             else{
                 button.ScaleTo(1, 100);
                 button.Content.ScaleTo(1, 100);
             }
         }
-        await imageButton.ScaleTo(1.2, 100);
+        await imageButton.ScaleTo(1, 100);
     }
 
     private void ShowStats(Senior senior)

@@ -5,7 +5,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
 
-    <Color x:Key="VitaBlue">#144357</Color>
+    <Color x:Key="VitaRed">#F01055</Color>
+    <Color x:Key="VitaOrange">#FC6505</Color>
+    <Color x:Key="VitaBlue">#042145</Color>
     <Color x:Key="Primary">#512BD4</Color>
     <Color x:Key="Secondary">#DFD8F7</Color>
     <Color x:Key="Tertiary">#2B0B98</Color>
