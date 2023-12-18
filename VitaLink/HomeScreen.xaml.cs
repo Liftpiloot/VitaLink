@@ -80,25 +80,22 @@ public partial class HomeScreen
      * Visualises the selected button, by making it bigger than the other buttons
      * @param imageButton The button to visualise
      */
-    private void VisualiseSelectedButton(ImageButton imageButton)
+    private async Task VisualiseSelectedButton(ImageButton imageButton)
     {
         foreach (var view in PeopleButtons.Children)
         {
             var button = (Frame)view;
             if (button.Content == imageButton)
-            {
-                button.HeightRequest = PeopleButtonSize + 10;
-                button.Content.HeightRequest = PeopleButtonSize + 10;
-                button.WidthRequest = PeopleButtonSize + 10;
-                button.Content.WidthRequest = PeopleButtonSize + 10;
+            { 
+                button.ScaleTo(1.2, 100); 
+                button.Content.ScaleTo(1.2, 100);
             }
             else{
-                button.HeightRequest = PeopleButtonSize;
-                button.Content.HeightRequest = PeopleButtonSize;
-                button.WidthRequest = PeopleButtonSize;
-                button.Content.WidthRequest = PeopleButtonSize;
+                button.ScaleTo(1, 100);
+                button.Content.ScaleTo(1, 100);
             }
         }
+        await imageButton.ScaleTo(1.2, 100);
     }
 
     private void ShowStats(Senior senior)
