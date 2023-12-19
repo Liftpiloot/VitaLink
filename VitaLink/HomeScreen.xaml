@@ -81,6 +81,7 @@
                             FontSize="Title"
                             TextDecorations="Underline"
                             FontAttributes="Bold"
+                            FontFamily="Nunito"
 	                        x:Name="HeartRateTitle"/>
                             <Label
 							Grid.Row="1"
@@ -88,6 +89,7 @@
                             FontSize="Large"
 	                        Text="65 BPM"
 	                        TextColor="White"
+                            FontFamily="Nunito"
 	                        x:Name="HeartRateText"/>
                         </Grid>
                     </Grid>
@@ -124,6 +126,7 @@
                             FontSize="Title"
                             TextDecorations="Underline"
                             FontAttributes="Bold"
+                            FontFamily="Nunito"
 	                        x:Name="TemperatureTitle"/>
                             <Label
 							Grid.Row="1"
@@ -131,6 +134,7 @@
                             FontSize="Large"
 	                        Text="10 °C"
 	                        TextColor="White"
+                            FontFamily="Nunito"
 	                        x:Name="TemperatureText"/>
                         </Grid>
 
@@ -169,6 +173,7 @@
                             FontSize="Title"
                             TextDecorations="Underline"
                             FontAttributes="Bold"
+                            FontFamily="Nunito"
 	                        x:Name="LocationTitle"/>
                             <Label
 							Grid.Row="1"
@@ -176,6 +181,7 @@
                             FontSize="Small"
 	                        Text="Professor Goosenlaan 5"
 	                        TextColor="White"
+                            FontFamily="Nunito"
 	                        x:Name="LocationText"/>
                         </Grid>
                     </Grid>

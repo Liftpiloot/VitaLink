@@ -37,7 +37,8 @@
                        Grid.Row="0"
                        HorizontalOptions="Start"
                        Margin="10"
-                       FontSize="Medium"/>
+                       FontSize="Medium"
+                       FontFamily="Nunito"/>
 
                 <Entry Placeholder="Email"
                     Grid.Row="1"
@@ -46,7 +47,8 @@
                     Margin="10"
                     FontSize="Medium"
                     WidthRequest="300"
-                    x:Name="EmailEntry"/>
+                    x:Name="EmailEntry"
+                    FontFamily="Nunito"/>
 
                 <Entry Placeholder="Password"
                     Grid.Row="2"
@@ -55,7 +57,8 @@
                     Margin="10"
                     FontSize="Medium"
                     WidthRequest="300"
-                    x:Name="PasswordEntry"/>
+                    x:Name="PasswordEntry"
+                    FontFamily="Nunito"/>
 
                 <Button Text="Login"
                     Grid.Column="0"
@@ -64,7 +67,8 @@
                     FontSize="Small"
                     HorizontalOptions="Center"
                     WidthRequest="120"
-                    x:Name="LoginButton"/>
+                    x:Name="LoginButton"
+                    FontFamily="Nunito"/>
 
                 <Button Text="Register"
                     Grid.Column="1"
@@ -73,7 +77,8 @@
                     FontSize="Small"
                     HorizontalOptions="Center"
                     WidthRequest="120"
-                    x:Name="RegisterButton"/>
+                    x:Name="RegisterButton"
+                    FontFamily="Nunito"/>
             </Grid>
         </Frame>
     </StackLayout>

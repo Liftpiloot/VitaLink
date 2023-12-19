@@ -40,7 +40,8 @@
                        Grid.Row="0"
                        HorizontalOptions="Start"
                        Margin="10"
-                       FontSize="Medium"/>
+                       FontSize="Medium"
+                       FontFamily="Nunito"/>
 
                 <Entry Placeholder="Email"
                     Grid.Row="1"
@@ -49,7 +50,8 @@
                     Margin="10"
                     FontSize="Medium"
                     WidthRequest="300"
-                    x:Name="EmailEntry"/>
+                    x:Name="EmailEntry"
+                    FontFamily="Nunito"/>
 
                 <Entry Placeholder="Password"
                     Grid.Row="2"
@@ -58,7 +60,8 @@
                     Margin="10"
                     FontSize="Medium"
                     WidthRequest="300"
-                    x:Name="PasswordEntry"/>
+                    x:Name="PasswordEntry"
+                    FontFamily="Nunito"/>
 
                 <Entry Placeholder="Username"
                        Grid.Row="3"
@@ -67,7 +70,8 @@
                        Margin="10"
                        FontSize="Medium"
                        WidthRequest="300"
-                       x:Name="UsernameEntry"/>
+                       x:Name="UsernameEntry"
+                       FontFamily="Nunito"/>
 
                 <Picker x:Name="UserTypePicker"
                     Grid.ColumnSpan="2" Grid.Column="0"
@@ -76,7 +80,8 @@
                     WidthRequest="300"
                     HeightRequest="50"
                     Margin="10"
-                    FontSize="Medium">
+                    FontSize="Medium"
+                    FontFamily="Nunito">
                 </Picker>
 
                 <Button Text="Register"
@@ -86,7 +91,8 @@
                     FontSize="Medium"
                     HorizontalOptions="Center"
                     WidthRequest="120"
-                    x:Name="RegisterButton"/>
+                    x:Name="RegisterButton"
+                    FontFamily="Nunito"/>
 
             </Grid>
         </Frame>

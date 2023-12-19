@@ -13,6 +13,7 @@ namespace VitaLink
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("Nunito-VariableFont_wght.ttf", "Nunito");
                 });
 
 #if DEBUG

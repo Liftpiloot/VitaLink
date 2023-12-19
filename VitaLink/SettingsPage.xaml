@@ -17,7 +17,8 @@
         <Label Text="Account" 
                HorizontalOptions="Center"
                Margin="10"
-               FontSize="Title"/>
+               FontSize="Title"
+               FontFamily="Nunito"/>
 
         <Frame
             Margin="20">
@@ -37,7 +38,8 @@
                        Grid.Row="0"
                        HorizontalOptions="Start"
                        Margin="10"
-                       FontSize="Medium"/>
+                       FontSize="Medium"
+                       FontFamily="Nunito"/>
 
                 <Entry Placeholder="Email"
                     Grid.Row="1"
@@ -46,24 +48,28 @@
                    Margin="10"
                    FontSize="Medium"
                    WidthRequest="300"
-                       x:Name="emailentry"/>
+                       x:Name="emailentry"
+                    FontFamily="Nunito"/>
 
                 <Button Text="Remove"
                     Grid.Column="1"
+                    Grid.Row="2"
+                    Margin="10"
+                    FontSize="Small"
+                    HorizontalOptions="Center"
+                    WidthRequest="120"
+                    x:Name="removebutton"
+                    FontFamily="Nunito"/>
+                
+                <Button Text="Add"
+                        Grid.Column="0"
                         Grid.Row="2"
-                Margin="10"
-                FontSize="Small"
-                HorizontalOptions="Center"
-                WidthRequest="120"
-                x:Name="removebutton"/>
-                        <Button Text="Add"
-                    Grid.Column="0"
-                                Grid.Row="2"
-                Margin="10"
-                FontSize="Small"
-                HorizontalOptions="Center"
-                WidthRequest="120"
-                                x:Name="addbutton"/>
+                        Margin="10"
+                        FontSize="Small"
+                        HorizontalOptions="Center"
+                        WidthRequest="120"
+                        x:Name="addbutton"
+                        FontFamily="Nunito"/>
             </Grid>
         </Frame>
 
@@ -85,42 +91,48 @@
                        Grid.Row="0"
                        HorizontalOptions="Start"
                        Margin="10"
-                       FontSize="Medium"/>
+                       FontSize="Medium"
+                       FontFamily="Nunito"/>
 
                 <Label Text="Abel"
                           Grid.Column="1"
                           Grid.Row="0"
                           HorizontalOptions="End"
                           Margin="10"
-                          FontSize="Medium"/>
+                          FontSize="Medium"
+                          FontFamily="Nunito"/>
 
                 <Label Text="Email:"
                           Grid.Column="0"
                           Grid.Row="1"
                           HorizontalOptions="Start"
                           Margin="10"
-                          FontSize="Medium"/>
+                          FontSize="Medium"
+                          FontFamily="Nunito"/>
 
                 <Label Text="abel@gmail.com"
                             Grid.Column="1"
                             Grid.Row="1"
                             HorizontalOptions="End"
                             Margin="10"
-                            FontSize="Medium"/>
+                            FontSize="Medium"
+                            FontFamily="Nunito"/>
 
                 <Label Text="User Type:"
                             Grid.Column="0"
                             Grid.Row="2"
                             HorizontalOptions="Start"
                             Margin="10"
-                            FontSize="Medium"/>
+                            FontSize="Medium"
+                            FontFamily="Nunito"/>
 
                 <Label Text="Doctor"
                             Grid.Column="1"
                             Grid.Row="2"
                             HorizontalOptions="End"
                             Margin="10"
-                            FontSize="Medium"/>
+                            FontSize="Medium"
+                            FontFamily="Nunito"/>
             </Grid>
 
         </Frame>
