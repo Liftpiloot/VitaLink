@@ -126,7 +126,7 @@
                             FontSize="Medium"
                             FontFamily="Nunito"/>
 
-                <Label Text="Doctor"
+                <Label Text="Senior"
                             Grid.Column="1"
                             Grid.Row="2"
                             HorizontalOptions="End"
