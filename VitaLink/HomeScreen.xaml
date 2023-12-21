@@ -79,7 +79,6 @@
 	                        Text="Heartrate"
 	                        TextColor="White"
                             FontSize="Title"
-                            TextDecorations="Underline"
                             FontAttributes="Bold"
                             FontFamily="Nunito"
 	                        x:Name="HeartRateTitle"/>
@@ -124,7 +123,6 @@
 	                        Text="Temperature"
 	                        TextColor="White"
                             FontSize="Title"
-                            TextDecorations="Underline"
                             FontAttributes="Bold"
                             FontFamily="Nunito"
 	                        x:Name="TemperatureTitle"/>
@@ -171,7 +169,6 @@
 	                        Text="Location"
 	                        TextColor="White"
                             FontSize="Title"
-                            TextDecorations="Underline"
                             FontAttributes="Bold"
                             FontFamily="Nunito"
 	                        x:Name="LocationTitle"/>
