@@ -58,8 +58,12 @@ namespace VitaLink
                 response.EnsureSuccessStatusCode();
                 var body = await response.Content.ReadAsStringAsync();
                 Console.WriteLine(body);
+                if (response.IsSuccessStatusCode) 
+                {
+                    Navigation.PushAsync(new HomeScreen());
+                }   
             }
-            Navigation.PushAsync(new HomeScreen());
+            
         }
     }
 }
