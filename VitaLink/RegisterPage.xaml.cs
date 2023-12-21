@@ -1,3 +1,5 @@
+using System.Net.Http.Headers;
+
 namespace VitaLink;
 
 public partial class RegisterPage : ContentPage
@@ -18,7 +20,41 @@ public partial class RegisterPage : ContentPage
 		RegisterButton.Clicked += (sender, args) =>
 		{
             // TODO Handle register
-            Navigation.PushAsync(new HomeScreen());
+            string email = EmailEntry.Text;
+            string password = PasswordEntry.Text;
+            string username = UsernameEntry.Text;
+            registerAsync(email, password, username);
         };
 	}
+
+	public async Task registerAsync(string email, string password, string username)
+	{
+        var client = new HttpClient();
+        var request = new HttpRequestMessage
+        {
+            Method = HttpMethod.Post,
+            RequestUri = new Uri("https://vita-link.nl/api/v1/users"),
+            Headers =
+    {
+        { "Accept", "application/json" },
+    },
+            Content = new StringContent("{\n  \"name\": \"" + username + "\",\n  \"email\": \"" + email + "\",\n  \"password\": \"" + password + "\"\n}")
+            {
+                Headers =
+        {
+            ContentType = new MediaTypeHeaderValue("application/json")
+        }
+            }
+        };
+        using (var response = await client.SendAsync(request))
+        {
+            response.EnsureSuccessStatusCode();
+            var body = await response.Content.ReadAsStringAsync();
+            Console.WriteLine(body);
+            if (response.IsSuccessStatusCode)
+            {
+                Navigation.PushAsync(new HomeScreen());
+            }
+        }
+    }
 }
