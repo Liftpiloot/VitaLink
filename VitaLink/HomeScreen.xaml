@@ -130,7 +130,7 @@
 							Grid.Row="1"
                             HorizontalOptions="Start"
                             FontSize="Large"
-	                        Text="10 °C"
+	                        Text="36 °C"
 	                        TextColor="White"
                             FontFamily="Nunito"
 	                        x:Name="TemperatureText"/>
@@ -176,7 +176,7 @@
 							Grid.Row="1"
                             HorizontalOptions="Start"
                             FontSize="Small"
-	                        Text="Professor Goosenlaan 5"
+	                        Text="Professor Goosenlaan 1"
 	                        TextColor="White"
                             FontFamily="Nunito"
 	                        x:Name="LocationText"/>
