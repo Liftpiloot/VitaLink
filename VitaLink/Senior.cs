@@ -13,7 +13,15 @@ namespace VitaLink
         public int Age { get; set; }
 
         public List<HealthDataItem> Data { get; set; }
-
+        
+        
+        public Senior(int id, string name, int age)
+        {
+            Id = id;
+            Name = name;
+            Age = age;
+        }
+        // Constructor if an image is available
         public Senior(int id, string name, string imageUrl, int age)
         {
             Id = id;
