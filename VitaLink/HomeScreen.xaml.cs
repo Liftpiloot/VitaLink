@@ -14,7 +14,6 @@ public partial class HomeScreen
 
         // Example for creating a user, should be handled with the database
         User user = User.GetInstance();
-        user.Username = "Abel";
         _selectedSenior = user.FollowingList[0];
         
         // Add the buttons to the stack layout

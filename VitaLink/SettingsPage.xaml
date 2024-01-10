@@ -94,7 +94,8 @@
                        FontSize="Medium"
                        FontFamily="Nunito"/>
 
-                <Label Text="Abel"
+                <Label Text=""
+                          x:Name="Username"
                           Grid.Column="1"
                           Grid.Row="0"
                           HorizontalOptions="End"
@@ -110,7 +111,8 @@
                           FontSize="Medium"
                           FontFamily="Nunito"/>
 
-                <Label Text="abel@gmail.com"
+                <Label Text=""
+                            x:Name="Email"
                             Grid.Column="1"
                             Grid.Row="1"
                             HorizontalOptions="End"
@@ -126,7 +128,8 @@
                             FontSize="Medium"
                             FontFamily="Nunito"/>
 
-                <Label Text="Senior"
+                <Label Text=""
+                            x:Name="Usertype"
                             Grid.Column="1"
                             Grid.Row="2"
                             HorizontalOptions="End"

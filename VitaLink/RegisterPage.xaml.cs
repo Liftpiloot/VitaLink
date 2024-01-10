@@ -4,7 +4,7 @@ namespace VitaLink;
 
 public partial class RegisterPage : ContentPage
 {
-	public RegisterPage()
+	public RegisterPage(MainPage mainPage)
 	{
 		InitializeComponent();
 		// Set the theme to light
@@ -67,6 +67,8 @@ public partial class RegisterPage : ContentPage
             Console.WriteLine(body);
             if (response.IsSuccessStatusCode)
             {
+                User user = User.GetInstance();
+                user.Username = username;
                 Navigation.PushAsync(new HomeScreen());
             }
         }

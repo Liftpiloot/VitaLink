@@ -3,6 +3,7 @@
     public class User
     {
         public string Username { get; set; }
+        public string Email { get; set; }
         public string Id { get; set; }
         public List<Senior> FollowingList { get; set; }
         public UserType UserType { get; set; }

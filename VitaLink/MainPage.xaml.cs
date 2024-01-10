@@ -2,6 +2,7 @@
 using System.Security.Cryptography.X509Certificates;
 using System.Net.Http.Headers;
 using System.Text.Json.Nodes;
+using Newtonsoft.Json;
 
 namespace VitaLink
 {
@@ -31,7 +32,7 @@ namespace VitaLink
             RegisterButton.Clicked += (sender, args) =>
             {
                 // TODO Handle register
-                Navigation.PushAsync(new RegisterPage());
+                Navigation.PushAsync(new RegisterPage(this));
             };
 
         }
@@ -59,7 +60,7 @@ namespace VitaLink
             {
                 // show error if login failed
                 if (!response.IsSuccessStatusCode)
-                {
+                { 
                     await DisplayAlert("Error", "Login failed", "OK");
                     return;
                 }
@@ -68,10 +69,27 @@ namespace VitaLink
                 Console.WriteLine(body);
                 if (response.IsSuccessStatusCode) 
                 {
+                    // Deserialize JSON into your object
+                    LoginResponse loginResponse = JsonConvert.DeserializeObject<LoginResponse>(body);
+                    // Set user data
+                    User.GetInstance().Id = loginResponse.id.ToString();
+                    User.GetInstance().Username = loginResponse.name;
+                    User.GetInstance().UserType = loginResponse.type == "senior" ? UserType.Senior : UserType.Carer;
+                    User.GetInstance().Email = loginResponse.email;
                     Navigation.PushAsync(new HomeScreen());
                 }   
             }
             
         }
+    }
+    public class LoginResponse
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+        public string email { get; set;}
+        public string email_verified_at { get; set; }
+        public string created_at { get; set; }
+        public string updated_at { get; set; } 
+        public string type { get; set; }
     }
 }
