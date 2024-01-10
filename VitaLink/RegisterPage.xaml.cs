@@ -19,16 +19,29 @@ public partial class RegisterPage : ContentPage
 		// Go to homeScreen.xaml.cs when registerbutton is clicked
 		RegisterButton.Clicked += (sender, args) =>
 		{
-            // TODO Handle register
             string email = EmailEntry.Text;
             string password = PasswordEntry.Text;
             string username = UsernameEntry.Text;
+            
+            // Check if UserTypePicker.SelectedItem is null
+            if (UserTypePicker.SelectedItem == null)
+            {
+                DisplayAlert("Error", "Please select a user type", "OK");
+                return;
+            }
             string type = UserTypePicker.SelectedItem.ToString();
-            registerAsync(email, password, username, type);
+
+            // alert user if not all fields are filled in
+            if (String.IsNullOrWhiteSpace(email) || String.IsNullOrWhiteSpace(password) || String.IsNullOrWhiteSpace(username) || String.IsNullOrWhiteSpace(type))
+            {
+                DisplayAlert("Error", "Please fill in all fields", "OK");
+                return;
+            }
+            RegisterAsync(email, password, username, type);
         };
 	}
 
-	public async Task registerAsync(string email, string password, string username, string type)
+    private async Task RegisterAsync(string email, string password, string username, string type)
 	{
         var client = new HttpClient();
         var request = new HttpRequestMessage

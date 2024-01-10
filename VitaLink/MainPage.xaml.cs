@@ -18,12 +18,14 @@ namespace VitaLink
             {
                 string email = EmailEntry.Text;
                 string password = PasswordEntry.Text;
-                loginAsync(email, password);
-                // TODO Handle login
-
+                // alert user if email or password is empty
+                if (String.IsNullOrWhiteSpace(email) || String.IsNullOrWhiteSpace(password))
+                {
+                    DisplayAlert("Error", "Please fill in all fields", "OK");
+                    return;
+                }
                 
-
-               
+                loginAsync(email, password);
             };
             // Go to register.xaml.cs when registerbutton is clicked
             RegisterButton.Clicked += (sender, args) =>
@@ -48,13 +50,19 @@ namespace VitaLink
 
                 {
                     Headers =
-        {
-            ContentType = new MediaTypeHeaderValue("application/json")
-        }
+                {
+                    ContentType = new MediaTypeHeaderValue("application/json")
+                }
                 }
             };
             using (var response = await client.SendAsync(request))
             {
+                // show error if login failed
+                if (!response.IsSuccessStatusCode)
+                {
+                    await DisplayAlert("Error", "Login failed", "OK");
+                    return;
+                }
                 response.EnsureSuccessStatusCode();
                 var body = await response.Content.ReadAsStringAsync();
                 Console.WriteLine(body);
