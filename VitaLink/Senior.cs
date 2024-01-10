@@ -1,12 +1,18 @@
-﻿namespace VitaLink
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Net.Http.Headers;
+using System.Security.Cryptography.X509Certificates;
+using Newtonsoft.Json;
+namespace VitaLink
 {
     public class Senior
     {
-        int i = -1;
+        
         private int Id { get; set; }
         public string Name { get; set; }
         public string ImageUrl { get; set; }
         public int Age { get; set; }
+
+        List<HealthDataItem> Data { get; set; }
 
         public Senior(int id, string name, string imageUrl, int age)
         {
@@ -16,34 +22,66 @@
             Age = age;
         }
 
-       
-        public string GetHeartRate()
+        async Task healthdataAsync()
         {
-            int[] heartrate = { 66, 67, 70, 71, 73, 75, 77, 80 };
-            
-            // TODO
-            if (i < heartrate.Length)
+            var client = new HttpClient();
+            var request = new HttpRequestMessage
             {
-                i++;
-                return Convert.ToString(heartrate[i]) + " BPM";
-            }
-            else
+                Method = HttpMethod.Get,
+                RequestUri = new Uri("https://vita-link.nl/api/v1/getHealthData?user_id=1"),
+                Headers =
             {
-                return "0 BPM";
+                { "Accept", "application/json" },
+            },
+            };
+            using (var response = await client.SendAsync(request))
+            {
+                response.EnsureSuccessStatusCode();
+                var body = await response.Content.ReadAsStringAsync();
+
+                // Deserialize JSON into your object
+                var healthDataResponse = JsonConvert.DeserializeObject<HealthDataResponse>(body);
+
+                // Now you can access specific properties of healthDataResponse
+                foreach (var HealthDataItem in healthDataResponse.Data)
+                {
+                    // Access specific data from each item
+                    /*int id = healthDataItem.Id;
+                    int userId = healthDataItem.UserId;*/
+                    double data = HealthDataItem.Data;
+                    string type = HealthDataItem.Type;
+
+                    // Use the data in your logic or call another method
+                    Data.Add(data);
+                    Data.Add(type);
+                }
+                
+
             }
         }
 
-        public string GetTemperature()
-        {
-            // TODO
-            double[] temperature = { 36.3, 36.5, 36.7, 37.0, 37.3, 37.5, 37.2, 37.0 };
-            if (i < temperature.Length)
+        public string GetHeartrate()
+        { 
+            if (Data.Type == "heartbeat")
             {
-                return Convert.ToString(temperature[i]) + " °C";
+                return Data.ToString();
             }
             else
             {
-                return "0 °C";
+                return "error";
+            }
+           
+        }
+
+        public string GetTemperature(double data, string type)
+        {
+            if (type == "temperature")
+            {
+                return data.ToString();
+            }
+            else
+            {
+                return "error";
             }
         }
 

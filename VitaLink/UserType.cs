@@ -9,7 +9,6 @@ namespace VitaLink
     public enum UserType
     {
         Senior,
-        Doctor,
-        FamilyMember
+        Carer
     }
 }

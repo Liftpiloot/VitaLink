@@ -101,7 +101,7 @@ public partial class HomeScreen
     private void ShowStats(Senior senior)
     {
         LocationText.Text = senior.GetLocation();
-        HeartRateText.Text = senior.GetHeartRate();
+        HeartRateText.Text = senior.GetHeartrate();
         TemperatureText.Text = senior.GetTemperature();
     }
 }

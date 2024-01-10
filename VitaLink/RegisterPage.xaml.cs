@@ -23,11 +23,12 @@ public partial class RegisterPage : ContentPage
             string email = EmailEntry.Text;
             string password = PasswordEntry.Text;
             string username = UsernameEntry.Text;
-            registerAsync(email, password, username);
+            string type = UserTypePicker.SelectedItem.ToString();
+            registerAsync(email, password, username, type);
         };
 	}
 
-	public async Task registerAsync(string email, string password, string username)
+	public async Task registerAsync(string email, string password, string username, string type)
 	{
         var client = new HttpClient();
         var request = new HttpRequestMessage
@@ -38,7 +39,7 @@ public partial class RegisterPage : ContentPage
     {
         { "Accept", "application/json" },
     },
-            Content = new StringContent("{\n  \"name\": \"" + username + "\",\n  \"email\": \"" + email + "\",\n  \"password\": \"" + password + "\"\n}")
+            Content = new StringContent("{\n  \"name\": \"" + username + "\",\n  \"email\": \"" + email + "\",\n  \"password\": \"" + password + "\",\n  \"type\": \"" + type + "\"\n}")
             {
                 Headers =
         {
