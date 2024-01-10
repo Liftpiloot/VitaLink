@@ -16,8 +16,8 @@ public partial class RegisterPage : ContentPage
             UserTypePicker.Items.Add(userType);
         }
 
-		// Go to homeScreen.xaml.cs when registerbutton is clicked
-		RegisterButton.Clicked += (sender, args) =>
+		// Go to homeScreen.xaml.cs when register button is clicked
+		RegisterButton.Clicked += (_, _) =>
 		{
             string email = EmailEntry.Text;
             string password = PasswordEntry.Text;
@@ -60,17 +60,15 @@ public partial class RegisterPage : ContentPage
         }
             }
         };
-        using (var response = await client.SendAsync(request))
+        using var response = await client.SendAsync(request);
+        response.EnsureSuccessStatusCode();
+        var body = await response.Content.ReadAsStringAsync();
+        Console.WriteLine(body);
+        if (response.IsSuccessStatusCode)
         {
-            response.EnsureSuccessStatusCode();
-            var body = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(body);
-            if (response.IsSuccessStatusCode)
-            {
-                User user = User.GetInstance();
-                user.Username = username;
-                Navigation.PushAsync(new HomeScreen());
-            }
+            User user = User.GetInstance();
+            user.Username = username;
+            await Navigation.PushAsync(new HomeScreen());
         }
     }
 }

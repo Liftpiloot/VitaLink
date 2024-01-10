@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Net.Http.Headers;
-using System.Security.Cryptography.X509Certificates;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 namespace VitaLink
 {
     public class Senior

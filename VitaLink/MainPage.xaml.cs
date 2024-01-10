@@ -1,7 +1,4 @@
 ﻿using System.Net.Http.Headers;
-using System.Security.Cryptography.X509Certificates;
-using System.Net.Http.Headers;
-using System.Text.Json.Nodes;
 using Newtonsoft.Json;
 
 namespace VitaLink
@@ -14,8 +11,8 @@ namespace VitaLink
             // Set the theme to light
             Application.Current.UserAppTheme = AppTheme.Light;
 
-            // Go to homeScreen.xaml.cs when loginbutton is clicked
-            LoginButton.Clicked += (sender, args) =>
+            // Go to homeScreen.xaml.cs when login button is clicked
+            LoginButton.Clicked += (_, _) =>
             {
                 string email = EmailEntry.Text;
                 string password = PasswordEntry.Text;
@@ -26,17 +23,18 @@ namespace VitaLink
                     return;
                 }
                 
-                loginAsync(email, password);
+                LoginAsync(email, password);
             };
-            // Go to register.xaml.cs when registerbutton is clicked
-            RegisterButton.Clicked += (sender, args) =>
+            // Go to register.xaml.cs when register button is clicked
+            RegisterButton.Clicked += (_, _) =>
             {
                 // TODO Handle register
                 Navigation.PushAsync(new RegisterPage(this));
             };
 
         }
-        public async Task loginAsync(string email, string password)
+
+        private async Task LoginAsync(string email, string password)
         {
             var client = new HttpClient();
             var request = new HttpRequestMessage
@@ -56,40 +54,38 @@ namespace VitaLink
                 }
                 }
             };
-            using (var response = await client.SendAsync(request))
+            using var response = await client.SendAsync(request);
+            // show error if login failed
+            if (!response.IsSuccessStatusCode)
             {
-                // show error if login failed
-                if (!response.IsSuccessStatusCode)
-                { 
-                    await DisplayAlert("Error", "Login failed", "OK");
-                    return;
-                }
-                response.EnsureSuccessStatusCode();
-                var body = await response.Content.ReadAsStringAsync();
-                Console.WriteLine(body);
-                if (response.IsSuccessStatusCode) 
-                {
-                    // Deserialize JSON into your object
-                    LoginResponse loginResponse = JsonConvert.DeserializeObject<LoginResponse>(body);
-                    // Set user data
-                    User.GetInstance().Id = loginResponse.id.ToString();
-                    User.GetInstance().Username = loginResponse.name;
-                    User.GetInstance().UserType = loginResponse.type == "senior" ? UserType.Senior : UserType.Carer;
-                    User.GetInstance().Email = loginResponse.email;
-                    Navigation.PushAsync(new HomeScreen());
-                }   
+                await DisplayAlert("Error", "Login failed", "OK");
+                return;
             }
-            
+
+            response.EnsureSuccessStatusCode();
+            var body = await response.Content.ReadAsStringAsync();
+            Console.WriteLine(body);
+            if (response.IsSuccessStatusCode)
+            {
+                // Deserialize JSON into your object
+                LoginResponse loginResponse = JsonConvert.DeserializeObject<LoginResponse>(body);
+                // Set user data
+                User.GetInstance().Id = loginResponse.Id.ToString();
+                User.GetInstance().Username = loginResponse.Name;
+                User.GetInstance().UserType = loginResponse.Type == "senior" ? UserType.Senior : UserType.Carer;
+                User.GetInstance().Email = loginResponse.Email;
+                await Navigation.PushAsync(new HomeScreen());
+            }
         }
     }
     public class LoginResponse
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public string email { get; set;}
-        public string email_verified_at { get; set; }
-        public string created_at { get; set; }
-        public string updated_at { get; set; } 
-        public string type { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set;}
+        public string EmailVerifiedAt { get; set; }
+        public string CreatedAt { get; set; }
+        public string UpdatedAt { get; set; } 
+        public string Type { get; set; }
     }
 }
