@@ -101,7 +101,7 @@ public partial class HomeScreen
     {
         await senior.getHealthData();
         LocationText.Text = senior.GetLocation();
-        HeartRateText.Text = senior.GetHeartrate() + " BPM";
-        TemperatureText.Text = senior.GetTemperature() + " °C";
+        HeartRateText.Text = senior.GetHeartrate();
+        TemperatureText.Text = senior.GetTemperature();
     }
 }
