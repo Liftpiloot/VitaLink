@@ -79,7 +79,7 @@ namespace VitaLink
             {
                 if (healthDataItem.Type == "heartbeat")
                 {
-                    return healthDataItem.Data.ToString();
+                    return healthDataItem.Data.ToString() + " BPM";
                 }
             }
             return "error";
@@ -92,7 +92,7 @@ namespace VitaLink
             {
                 if (healthDataItem.Type == "temperature")
                 {
-                    return healthDataItem.Data.ToString();
+                    return healthDataItem.Data.ToString() + " °C";
                 }
             }
             return "error";
