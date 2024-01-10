@@ -12,7 +12,7 @@ namespace VitaLink
         public string ImageUrl { get; set; }
         public int Age { get; set; }
 
-        List<HealthDataItem> Data { get; set; }
+        public List<HealthDataItem> Data { get; set; }
 
         public Senior(int id, string name, string imageUrl, int age)
         {
@@ -22,13 +22,13 @@ namespace VitaLink
             Age = age;
         }
 
-        async Task healthdataAsync()
+        public async Task getHealthData()
         {
             var client = new HttpClient();
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
-                RequestUri = new Uri("https://vita-link.nl/api/v1/getHealthData?user_id=1"),
+                RequestUri = new Uri("https://vita-link.nl/api/v1/getHealthData?user_id=" + Id),
                 Headers =
             {
                 { "Accept", "application/json" },
@@ -41,6 +41,7 @@ namespace VitaLink
 
                 // Deserialize JSON into your object
                 var healthDataResponse = JsonConvert.DeserializeObject<HealthDataResponse>(body);
+                List<HealthDataItem> healthData = new List<HealthDataItem>();
 
                 // Now you can access specific properties of healthDataResponse
                 foreach (var HealthDataItem in healthDataResponse.Data)
@@ -52,37 +53,41 @@ namespace VitaLink
                     string type = HealthDataItem.Type;
 
                     // Use the data in your logic or call another method
-                    Data.Add(data);
-                    Data.Add(type);
+                    healthData.Add(new HealthDataItem
+                    {
+                        Data = data,
+                        Type = type
+                    });
                 }
-                
 
+                Data = healthData;
             }
         }
 
         public string GetHeartrate()
         { 
-            if (Data.Type == "heartbeat")
+            // return heartbeat if it exists
+            foreach (var healthDataItem in Data)
             {
-                return Data.ToString();
+                if (healthDataItem.Type == "heartbeat")
+                {
+                    return healthDataItem.Data.ToString();
+                }
             }
-            else
-            {
-                return "error";
-            }
-           
+            return "error";
         }
 
-        public string GetTemperature(double data, string type)
+        public string GetTemperature()
         {
-            if (type == "temperature")
+            // return temperature if it exists
+            foreach (var healthDataItem in Data)
             {
-                return data.ToString();
+                if (healthDataItem.Type == "temperature")
+                {
+                    return healthDataItem.Data.ToString();
+                }
             }
-            else
-            {
-                return "error";
-            }
+            return "error";
         }
 
         public string GetLocation()

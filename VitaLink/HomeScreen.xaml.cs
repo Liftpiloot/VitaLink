@@ -34,7 +34,7 @@ public partial class HomeScreen
         };
         
         // Run the ShowStats() method every 10 seconds
-        Device.StartTimer(TimeSpan.FromSeconds(10), ()=>
+        Device.StartTimer(TimeSpan.FromSeconds(1), ()=>
         {
             ShowStats(_selectedSenior);
             return true;
@@ -98,10 +98,11 @@ public partial class HomeScreen
         await imageButton.ScaleTo(1, 100);
     }
 
-    private void ShowStats(Senior senior)
+    private async Task ShowStats(Senior senior)
     {
+        await senior.getHealthData();
         LocationText.Text = senior.GetLocation();
-        HeartRateText.Text = senior.GetHeartrate();
-        TemperatureText.Text = senior.GetTemperature();
+        HeartRateText.Text = senior.GetHeartrate() + " BPM";
+        TemperatureText.Text = senior.GetTemperature() + " °C";
     }
 }
